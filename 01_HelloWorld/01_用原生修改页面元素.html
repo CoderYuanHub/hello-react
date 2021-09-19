@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2 class="text">hello wrold</h2>
+    <button class="btn">改变文本</button>
+</body>
+<script>
+    const text = document.getElementsByClassName("text")[0];
+    const btn = document.getElementsByClassName('btn')[0];
+    btn.addEventListener('click', function() {
+        text.innerHTML = "hello React";
+    });
+</script>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <!-- 加载 React。-->
+    <!-- 注意: 部署时，将 "development.js" 替换为 "production.min.js"。-->
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel">
+        class App extends React.Component {
+            constructor() {
+                super();
+                this.state = {
+                    firstName: 'w',
+                    lastName: 'yy',
+                    isLogin: false
+                }
+            }
+            render() {
+                const { firstName, lastName, isLogin} = this.state;
+                return(
+                    <div>
+                        {/* 运算符表达式 */}
+                        <div> {firstName + lastName}</div>
+                        {/* 三元表达式 */}
+                        <div>{isLogin ? firstName : lastName}</div>
+                        {/* 函数表达式 */}
+                        <div>
+                            {this.getInfo()}
+                        </div>
+                    </div>
+                )
+            }
+            getInfo() {
+                return this.state.firstName + "----" + this.state.lastName;
+            }
+        }
+        ReactDOM.render(<App />, document.getElementById("app"))
+    </script>
+</body>
+</html>

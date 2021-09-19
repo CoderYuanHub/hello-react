@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Persion {
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+            running () {
+                console.log(this.name, this.age, 'running');
+            }
+        }
+        class Student extends Persion {
+            constructor(name, age, son) {
+                super(name, age);
+                this.son = son;
+            }
+            stdudy () {
+                console.log(this.name, this.age, this.son, 'study');
+            }
+        }
+        const stu = new Student('wyy', 24, '3661');
+        console.log(stu.name, stu.age, stu.son);
+        stu.stdudy();
+    </script>
+</body>
+</html>

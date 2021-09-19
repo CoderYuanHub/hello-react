@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <!-- 加载 React。-->
+    <!-- 注意: 部署时，将 "development.js" 替换为 "production.min.js"。-->
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel">
+        class App extends React.Component {
+            constructor() {
+                super();
+                this.state = {
+                    count: 0
+                }
+            }
+            render() {
+                const { count } = this.state;
+                return(
+                    <div>
+                        <h2>当前计算：{count}</h2>
+                        <button onClick={this.increate.bind(this)}>+1</button>
+                        <button onClick={this.down.bind(this)}>-1</button>
+                    </div>
+                )
+            }
+            increate() {
+                this.setState({
+                    count: this.state.count + 1
+                })
+            }
+            down() {
+                this.setState({
+                    count: this.state.count - 1
+                })
+            }
+        }
+        ReactDOM.render(<App />, document.getElementById("app"))
+    </script>
+</body>
+</html>

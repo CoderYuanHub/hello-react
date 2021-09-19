@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Persion {
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+            running () {
+                console.log(this.name, this.age, 'running');
+            }
+        }
+
+        const p = new Persion('wyy', 24);
+        // console.log(p.name, p.age);
+        // p.running();
+        const func = p.running;
+        const obj = {
+            name: 'mly',
+            age: 22
+        };
+        func.call(obj);
+        
+    </script>
+    
+</body>
+</html>

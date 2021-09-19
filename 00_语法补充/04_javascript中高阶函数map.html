@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const list = ["abc", "nbc", "cbd"];
+        /*
+        * map函数,可以构造新数组
+        * 参数一： function()
+        * function 包含三个参数，item（每项），index（下标），arr（数组值）
+        * 参数二：this
+        */
+        const newList = list.map((item, index, arr) => {
+            console.log(item, index, arr);
+            return item + '0000';
+        });
+        console.log(newList);
+    </script>
+</body>
+</html>
