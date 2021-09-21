@@ -14,41 +14,31 @@
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
     <script type="text/babel">
         class App extends React.Component {
-            constructor() {
-                super();
+            constructor(props) {
+                super(props);
                 this.state = {
-                    str: 'String', //String
-                    num: 123, //Number
-                    arr: ['123', '456', '789'], //Array
-
-                    // JSX默认不显示
-                    nul: null,
-                    und: undefined,
-                    bol: true,
-
-                    // JSX不支持
-                    obj: {
-                        type: '1',
-                        number: 2
-                    }
-
+                    isLogin: false
                 }
             }
             render() {
-                const {str, num, arr, nul, und, obj } = this.state;
+                const { isLogin } = this.state;
+                let wel = null;
+                if (isLogin) {
+                    wel = "欢迎退出";
+                } else {
+                    wel = "请登陆";
+                }
                 return(
                     <div>
-                        <h2>{str}</h2>
-                        <h2>{num}</h2>
-                        <h2>{arr}</h2>
-                        <h2>{nul}</h2>
-                        <h2>{und}</h2>
-                        {/* 
-                            JSX不支持对象<h2>{obj}</h2>
-                        */}
-                        
+                        <div>{wel}</div>
+                        <button onClick={() => this.change()}>{!isLogin ? "请登陆": "欢迎"}</button>
                     </div>
                 )
+            }
+            change() {
+                this.setState({
+                    isLogin: !this.state.isLogin
+                })
             }
         }
         ReactDOM.render(<App />, document.getElementById("app"))

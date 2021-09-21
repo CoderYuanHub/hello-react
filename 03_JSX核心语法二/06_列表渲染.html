@@ -14,39 +14,20 @@
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
     <script type="text/babel">
         class App extends React.Component {
-            constructor() {
-                super();
+            constructor(props) {
+                super(props);
                 this.state = {
-                    str: 'String', //String
-                    num: 123, //Number
-                    arr: ['123', '456', '789'], //Array
-
-                    // JSX默认不显示
-                    nul: null,
-                    und: undefined,
-                    bol: true,
-
-                    // JSX不支持
-                    obj: {
-                        type: '1',
-                        number: 2
-                    }
-
+                    isLogin: true,
+                    numArr: [20, 30, 50, 1223, 40, 79]
                 }
             }
             render() {
-                const {str, num, arr, nul, und, obj } = this.state;
+                const { isLogin, numArr } = this.state;
                 return(
                     <div>
-                        <h2>{str}</h2>
-                        <h2>{num}</h2>
-                        <h2>{arr}</h2>
-                        <h2>{nul}</h2>
-                        <h2>{und}</h2>
-                        {/* 
-                            JSX不支持对象<h2>{obj}</h2>
-                        */}
-                        
+                        <ul>
+                            {numArr.filter(item => item > 40).map(item => <li>{item}</li>)}
+                        </ul>
                     </div>
                 )
             }

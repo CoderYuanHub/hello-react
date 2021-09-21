@@ -14,42 +14,26 @@
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
     <script type="text/babel">
         class App extends React.Component {
-            constructor() {
-                super();
+            constructor(props) {
+                super(props);
                 this.state = {
-                    str: 'String', //String
-                    num: 123, //Number
-                    arr: ['123', '456', '789'], //Array
-
-                    // JSX默认不显示
-                    nul: null,
-                    und: undefined,
-                    bol: true,
-
-                    // JSX不支持
-                    obj: {
-                        type: '1',
-                        number: 2
-                    }
-
+                    show: false
                 }
             }
             render() {
-                const {str, num, arr, nul, und, obj } = this.state;
                 return(
                     <div>
-                        <h2>{str}</h2>
-                        <h2>{num}</h2>
-                        <h2>{arr}</h2>
-                        <h2>{nul}</h2>
-                        <h2>{und}</h2>
-                        {/* 
-                            JSX不支持对象<h2>{obj}</h2>
-                        */}
-                        
+                        <div style={{display: this.state.show && 'none'}}>看到我了</div>
+                        <button onClick={() => this.change()}>更改状态</button>
                     </div>
                 )
             }
+            change() {
+                this.setState({
+                    show: !this.state.show
+                })
+            }
+
         }
         ReactDOM.render(<App />, document.getElementById("app"))
     </script>

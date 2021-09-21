@@ -14,39 +14,25 @@
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
     <script type="text/babel">
         class App extends React.Component {
-            constructor() {
-                super();
+            constructor(props) {
+                super(props);
                 this.state = {
-                    str: 'String', //String
-                    num: 123, //Number
-                    arr: ['123', '456', '789'], //Array
-
-                    // JSX默认不显示
-                    nul: null,
-                    und: undefined,
-                    bol: true,
-
-                    // JSX不支持
-                    obj: {
-                        type: '1',
-                        number: 2
-                    }
-
+                    imgUrl: 'http://p1.music.126.net/4HzNJkZDodYjT9fGkP2CZQ==/109951166433624413.jpg?param=140y140',
+                    isShow: true
                 }
             }
             render() {
-                const {str, num, arr, nul, und, obj } = this.state;
+                const { imgUrl, isShow } = this.state;
                 return(
                     <div>
-                        <h2>{str}</h2>
-                        <h2>{num}</h2>
-                        <h2>{arr}</h2>
-                        <h2>{nul}</h2>
-                        <h2>{und}</h2>
-                        {/* 
-                            JSX不支持对象<h2>{obj}</h2>
-                        */}
-                        
+                        {/* 1.普通属性绑定 */}
+                        <div title="属性">title属性</div>
+                        <img src={imgUrl} alt="" />
+                        {/* 2.内联样式绑定 */}
+                        <div style={{color: "red", fontSize: "20px"}}>内联样式</div>
+                        {/* 3.class绑定 */}
+                        <div className={"title"}></div>
+                        <div className={"title " + isShow && "shwo-class"}>动态样式</div>
                     </div>
                 )
             }
