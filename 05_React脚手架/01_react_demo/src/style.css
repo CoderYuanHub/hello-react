@@ -1,0 +1,36 @@
+.nav {
+    display: flex;
+}
+.nav-item {
+    flex: 1;
+    text-align: center;
+    height: 44px;
+    line-height: 44px;
+    padding: 0 -5px;
+}
+.is-active {
+    color: red;
+    border-bottom: 1px solid red;
+}
+
+/* React实现slot的样式 */
+.slot {
+    display: flex;
+}
+
+.slot-left {
+    width: 40px;
+    height: 44px;
+    line-height: 44px;
+}
+.slot-center {
+    flex: 1;
+    height: 44px;
+    line-height: 44px;
+}
+
+.slot-right {
+    width: 40px;
+    height: 44px;
+    line-height: 44px;
+}

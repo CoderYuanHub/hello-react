@@ -1,5 +1,9 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
+import Navbar from './组件通信案例';
+import SlotShow from './React实现slot';
+import CrosProps from './跨组件通信-props';
+import CrosContext from './跨组件通信-context';
 
 // 函数式组件
 function Fun() {
@@ -25,7 +29,7 @@ class ChildCpn extends Component {
         const { name, age, height, arr } = this.props;
         console.log(arr);
         return (
-            <div>{ name + age + height }</div>
+            <div>{name + age + height}</div>
         )
     }
 }
@@ -62,9 +66,26 @@ class ChildCpn2 extends Component {
         const { name, age, height, arr } = this.props;
         console.log(arr);
         return (
-            <div>{ name + age + height }</div>
+            <div>{name + age + height}</div>
         )
     }
+}
+// 父子组件传值，子传父
+class ChildCpn3 extends Component {
+    constructor() {
+        super();
+        this.state = {
+            msg: '这是ChildCpn3传来的数据'
+        }
+    }
+    render() {
+        return (
+            <div>
+                <button onClick={e => { this.props.childCick(this.state.msg) }}>点击传值给父组件</button>
+            </div>
+        )
+    }
+
 }
 
 export default class App extends Component {
@@ -72,7 +93,8 @@ export default class App extends Component {
         super();
         this.state = {
             count: 0,
-            isShow: true
+            isShow: true,
+            childMsg: ''
         }
         console.log("执行了constructor方法");
     }
@@ -92,9 +114,31 @@ export default class App extends Component {
                 <ChildCpn></ChildCpn>
                 <hr />
                 <ChildCpn2></ChildCpn2>
-                
+                <hr />
+                <div>{ this.state.childMsg }</div>
+                <ChildCpn3 childCick={content => this.childCick(content)}></ChildCpn3>
+                <hr />
+                <div>案例演示</div>
+                <Navbar></Navbar>
+                <hr />
+                {/* <SlotShow>
+                    <span>导航</span>
+                    <span>中间</span>
+                    <span>右侧</span>
+                </SlotShow> */}
+                <SlotShow slotLeft={<span>导航</span>} slotCenter={<span>中间</span>} slotRight={<span>右侧</span>}></SlotShow>
+                <hr />
+                <CrosProps />
+                <CrosContext />
             </div>
         )
+    }
+
+    childCick(content) {
+        this.setState({
+            childMsg: content
+        })
+        console.log(content)
     }
     changeState() {
         this.setState({
