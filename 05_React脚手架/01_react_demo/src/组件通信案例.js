@@ -1,5 +1,4 @@
 import { Component } from 'react';
-
 class NavbarItem extends Component {
     constructor(props) {
         super(props);
@@ -22,10 +21,10 @@ class NavbarItem extends Component {
         this.setState({
             activeIndex: index
         });
+        // 子组件通过props传递index参数回去给父组件
         this.props.changeIndex(index);
     }
 }
-
 export default class Navbar extends Component {
     constructor() {
         super();
@@ -37,6 +36,7 @@ export default class Navbar extends Component {
     render() {
         return (
             <div>
+                {/* 父组件传递titles、changeIndex属性给子组件，changeIndex同时接收子组件传递回来的参数 */}
                 <NavbarItem changeIndex={index => this.getIndex(index)} titles={this.state.titles} />
                 <div>{ this.state.titles[this.state.activeIndex] }</div>
             </div>

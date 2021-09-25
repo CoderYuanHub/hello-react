@@ -4,6 +4,9 @@ import Navbar from './组件通信案例';
 import SlotShow from './React实现slot';
 import CrosProps from './跨组件通信-props';
 import CrosContext from './跨组件通信-context';
+import SetStateUse from './setState的使用';
+import ShouldUpdate from './shouldComponentUpdate';
+import PureCpn from './PureComponent的使用';
 
 // 函数式组件
 function Fun() {
@@ -115,7 +118,7 @@ export default class App extends Component {
                 <hr />
                 <ChildCpn2></ChildCpn2>
                 <hr />
-                <div>{ this.state.childMsg }</div>
+                <div>{this.state.childMsg}</div>
                 <ChildCpn3 childCick={content => this.childCick(content)}></ChildCpn3>
                 <hr />
                 <div>案例演示</div>
@@ -130,6 +133,9 @@ export default class App extends Component {
                 <hr />
                 <CrosProps />
                 <CrosContext />
+                <SetStateUse></SetStateUse>
+                <ShouldUpdate></ShouldUpdate>
+                <PureCpn />
             </div>
         )
     }
