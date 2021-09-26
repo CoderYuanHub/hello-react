@@ -7,6 +7,8 @@ import CrosContext from './跨组件通信-context';
 import SetStateUse from './setState的使用';
 import ShouldUpdate from './shouldComponentUpdate';
 import PureCpn from './PureComponent的使用';
+import RefsCpn from './refs的使用';
+import EventCpn from './组件通信事件通知';
 
 // 函数式组件
 function Fun() {
@@ -136,6 +138,8 @@ export default class App extends Component {
                 <SetStateUse></SetStateUse>
                 <ShouldUpdate></ShouldUpdate>
                 <PureCpn />
+                <RefsCpn />
+                <EventCpn />
             </div>
         )
     }
