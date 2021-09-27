@@ -9,6 +9,9 @@ import ShouldUpdate from './shouldComponentUpdate';
 import PureCpn from './PureComponent的使用';
 import RefsCpn from './refs的使用';
 import EventCpn from './组件通信事件通知';
+import HocCpn from './高阶组件的定义方式';
+import RefCpn from './ref的转发';
+import ProCpn from './protals的使用';
 
 // 函数式组件
 function Fun() {
@@ -140,6 +143,9 @@ export default class App extends Component {
                 <PureCpn />
                 <RefsCpn />
                 <EventCpn />
+                <HocCpn />
+                <RefCpn />
+                <ProCpn />
             </div>
         )
     }
