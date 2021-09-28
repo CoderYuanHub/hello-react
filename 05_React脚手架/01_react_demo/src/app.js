@@ -12,6 +12,11 @@ import EventCpn from './组件通信事件通知';
 import HocCpn from './高阶组件的定义方式';
 import RefCpn from './ref的转发';
 import ProCpn from './protals的使用';
+import FragmentsCpn from './Fragments的使用';
+import StyleInnerCpn from './CSS的使用-内联样式';
+import StyleAllCpn from './CSS的使用-全局样式';
+import StyleModule from './CSS的使用-模块化';
+import StyledComponentsCPn from './CSS的使用-CSSinJs';
 
 // 函数式组件
 function Fun() {
@@ -146,6 +151,11 @@ export default class App extends Component {
                 <HocCpn />
                 <RefCpn />
                 <ProCpn />
+                <FragmentsCpn />
+                <StyleInnerCpn />
+                <StyleAllCpn />
+                <StyleModule />
+                <StyledComponentsCPn />
             </div>
         )
     }
