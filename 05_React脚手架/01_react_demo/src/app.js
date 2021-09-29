@@ -1,4 +1,6 @@
 import { Component } from 'react';
+import 'antd/dist/antd.less';
+
 import PropTypes from 'prop-types';
 import Navbar from './组件通信案例';
 import SlotShow from './React实现slot';
@@ -17,6 +19,8 @@ import StyleInnerCpn from './CSS的使用-内联样式';
 import StyleAllCpn from './CSS的使用-全局样式';
 import StyleModule from './CSS的使用-模块化';
 import StyledComponentsCPn from './CSS的使用-CSSinJs';
+import ClassNamesCpn from './classnames的使用';
+import CommentCpn from './ant-design实现评论案例';
 
 // 函数式组件
 function Fun() {
@@ -156,6 +160,8 @@ export default class App extends Component {
                 <StyleAllCpn />
                 <StyleModule />
                 <StyledComponentsCPn />
+                <ClassNamesCpn />
+                <CommentCpn />
             </div>
         )
     }
