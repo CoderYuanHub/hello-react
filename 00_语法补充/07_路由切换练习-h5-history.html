@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <a href="/home">首页</a>
+        <a href="/about">关于</a>
+    </div>
+    <div class="inner"></div>
+    <script>
+        const inner = document.getElementsByClassName("inner")[0];
+        // 获取a元素，禁止默认行为
+        const aEls = document.getElementsByTagName("a");
+        for (let el of aEls) {
+            let attr = el.getAttribute("href");
+            el.addEventListener('click', e => {
+                console.log(attr)
+                e.preventDefault();
+                // 当路由不是hash时候需要启动服务才可以使用，不然会报错
+                history.pushState({}, "", attr);
+                urlChange();
+            })
+        }
+        // 处理页面点击回退、前进按钮页面🈚️监听问题
+        window.addEventListener("popstate", urlChange)
+        
+        // url改变执行的方法
+        function urlChange () {
+            console.log(location.pathname)
+            switch(location.pathname) {
+                case "/home":
+                    inner.innerHTML = "首页";
+                    break;
+                case "/about":
+                    inner.innerHTML = "关于";
+                    break;
+                default:
+                    inner.innerHTML = "";
+                    break;
+            }
+        }
+
+        
+    </script>
+</body>
+</html>
