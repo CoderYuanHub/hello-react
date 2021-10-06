@@ -1,7 +1,13 @@
 const increment = "INCREMENT";
 const decrement = "DECREMENT";
+const changeBanner = "CHANGEBANNER";
+const changeRecommend = "CHANGERECOMMEND";
+const FETCH_HOME_MULTIDATA = "fetch_home_multidata";
 
 export {
     increment,
-    decrement
+    decrement,
+    changeBanner,
+    changeRecommend,
+    FETCH_HOME_MULTIDATA
 }

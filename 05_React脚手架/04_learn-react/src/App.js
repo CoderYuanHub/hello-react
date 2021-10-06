@@ -2,7 +2,8 @@ import React, { PureComponent } from 'react';
 import store from './store';
 import { increment, decrement } from './store/action';
 import Home from './home/Home';
-import About from './about/index'
+import About from './about/index';
+import Header from './header/Header'
 
 export default class App extends PureComponent {
     constructor() {
@@ -29,6 +30,7 @@ export default class App extends PureComponent {
                 <button onClick={e => this.decrement()}>减少</button>
                 <Home />
                 <About />
+                <Header />
             </div>
         )
     }
