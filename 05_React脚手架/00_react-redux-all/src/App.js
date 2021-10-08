@@ -5,6 +5,8 @@ import store from './03_store-进阶使用';
 import { action } from './03_store-进阶使用/creatActions';
 import Home from './Home'
 import About from './About'
+import List from './List'
+import Me from './Me'
 
 export default class App extends PureComponent {
   constructor() {
@@ -34,6 +36,8 @@ export default class App extends PureComponent {
         <button onClick={e => this.increment(1)}>触发增加</button>
         <Home />
         <About />
+        <List />
+        <Me />
       </div>
     )
   }
