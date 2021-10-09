@@ -9,6 +9,8 @@ import {
     Redirect,
     withRouter
 } from 'react-router-dom'
+import { renderRoutes } from 'react-router-config'
+import routes from './router/index'
 
 // class Home extends PureComponent {
 //     render() {
@@ -33,10 +35,11 @@ import {
 // }
 
 
-function Index() {
+export function Index() {
     return <div>这是首页</div>
 }
-function About(props) {
+export function About(props) {
+    console.log(props)
     return (
         <div>
             {/* 嵌套路由的使用 */}
@@ -44,9 +47,10 @@ function About(props) {
             <NavLink activeClassName="about-link" to="/about/food">餐饮</NavLink>
             <NavLink activeClassName="about-link" to="/about/join">加入</NavLink>
             <button onClick={e => changeRouter(props)}>手动跳转</button>
-            <Route exact path="/about" component={AountCulture} />
+            {/* <Route exact path="/about" component={AountCulture} />
             <Route path="/about/food" component={AountFood} />
-            <Route path="/about/join" component={AountJion} />
+            <Route path="/about/join" component={AountJion} /> */}
+            {renderRoutes(props.route.routes)}
         </div>
     )
     function changeRouter(props) {
@@ -55,16 +59,16 @@ function About(props) {
         console.log(props);
     }
 }
-function AountCulture() {
+export function AountCulture() {
     return <div>这是文化</div>
 }
-function AountFood() {
+export function AountFood() {
     return <div>这是餐饮</div>
 }
-function AountJion() {
+export function AountJion() {
     return <div>这是加入</div>
 }
-function Login() {
+export function Login() {
     return <div>登陆组件</div>
 }
 class Me extends PureComponent {
@@ -83,7 +87,7 @@ class Me extends PureComponent {
     }
 }
 
-function NotMatch() {
+export function NotMatch() {
     return <div>没有匹配到</div>
 }
 
@@ -109,13 +113,14 @@ class App extends PureComponent {
                 <button onClick={e => this.changeRouter()}>手动跳转</button>
 
                 {/* Switch用于排他，当找到匹配项的时候就显示第一个找到项 */}
-                <Switch>
+                {/* <Switch>
                     <Route exact path="/" component={Index} />
                     <Route path="/about" component={About} />
                     <Route path="/login" component={Login} />
                     <Route path="/me" component={Me} />
                     <Route component={NotMatch} />
-                </Switch>
+                </Switch> */}
+                {renderRoutes(routes)}
 
             </div>
         )
